@@ -91,6 +91,25 @@
             text-decoration: none;
             color: white;
         }
+        .material-link {
+    display: inline-block;
+    padding: 15px;
+    margin: 10px 0;
+    border: 2px solid #1e88e5; /* Border color */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #fff; /* Background color */
+    color: red; /* Text color */
+    text-decoration: none; /* No underline */
+    font-size: 1.2rem; /* Font size */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition for hover effects */
+}
+
+.material-link:hover {
+    background-color: #1e88e5; /* Change background on hover */
+    color: white; /* Change text color on hover */
+    border-color: #1976d2; /* Change border color on hover */
+}
+
     </style>
 </head>
 <body>
@@ -102,7 +121,14 @@
     <!-- Section for Class 10 Study Materials -->
     <div class="section">
         <h2>Class 10 Study Materials</h2>
-        
+        <div class="materials-container">
+    <div class="materials-title">FREE STUDY MATERIALS</div>
+    <a href="https://drive.google.com/uc?id=1geg14uAeMNJybLd5ZOvjQXp5AUGZ6uyT&export=download" download class="material-link">
+        ENGLISH GRAMMAR CHEAT SHEET 
+        <i class="fas fa-download"></i>
+    </a>
+</div>
+
     </div>
 
     <div class="status-bar">
