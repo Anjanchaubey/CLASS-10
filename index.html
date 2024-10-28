@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLASS 10</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Universal styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px;
+            background-color: #4CAF50;
+            color: #fff;
+            width: 100%;
+            max-width: 900px;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .header .quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        .header .auth-buttons {
+            margin-top: 15px;
+        }
+
+        .header .auth-button {
+            background-color: #1e88e5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .header .auth-button:hover {
+            background-color: #1976d2;
+        }
+
+        .about {
+            text-align: center;
+            max-width: 700px;
+            font-size: 1rem;
+            margin: 20px auto;
+            line-height: 1.6;
+        }
+
+        /* Thought of the Day Section */
+        .materials-container {
+            max-width: 700px;
+            width: 100%;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .materials-title {
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        #thought {
+            font-size: 1.1rem;
+            color: #555;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        /* Taskbar */
+        .status-bar {
+            background-color: #1e88e5;
+            color: white;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-around;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            max-width: 900px;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .status-bar-item {
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+        }
+
+        .status-bar-item:hover {
+            color: #ffd700;
+        }
+
+        /* Style for Free Study Materials Section */
+        .study-material-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+            color: #333;
+            text-align: left;
+        }
+
+        .study-material-list li {
+            font-size: 1.1rem;
+            color: #1e88e5;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+            padding: 5px;
+        }
+
+        .study-material-list li:hover {
+            color: #d32f2f;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Popup Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; 
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0, 0, 0, 0.7); 
+            padding-top: 100px; 
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; 
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; 
+            max-width: 400px; 
+            text-align: center; 
+            border-radius: 10px; 
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-button {
+            background-color: #1e88e5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+
+        .modal-button:hover {
+            background-color: #1976d2;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">CLASS 10</div>
+        <div class="quote">"Education is the passport to the future, for tomorrow belongs to those who prepare for it today." - Malcolm X</div>
+        <div class="auth-buttons">
+            <a href="login.html"><button class="auth-button">Login</button></a>
+            <a href="signup.html"><button class="auth-button">Signup</button></a>
+        </div>
+    </div>
+
+    <div class="about">
+        <p>Welcome to CLASS 10 by anjan and pulkit, a dedicated educational resource for class 10 students.</p>
+    </div>
+
+    <div class="materials-container">
+        <div class="materials-title">THOUGHT OF THE DAY</div>
+        <div id="thought"></div>
+        <script>
+            function generateThought() {
+                const thoughts = [
+                    "The only way to do great work is to love what you do. - Steve Jobs",
+                    "In the middle of difficulty lies opportunity. - Albert Einstein",
+                    "Believe you can and you're halfway there. - Theodore Roosevelt",
+                    "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
+                    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
+                    "It does not matter how slowly you go as long as you do not stop. - Confucius",
+                    "The best way to predict the future is to invent it. - Alan Kay"
+                ];
+                const today = new Date();
+                const index = today.getDate() % thoughts.length;
+                return thoughts[index];
+            }
+            document.getElementById("thought").innerText = generateThought();
+        </script>
+    </div>
+
+    <div class="materials-container">
+        <div class="materials-title">FREE STUDY MATERIALS</div>
+        <ul class="study-material-list">
+            <li>Chapter 1 - Real Numbers</li>
+            <li>Chapter 2 - Polynomials</li>
+            <li>Chapter 3 - Pair of Linear Equations in Two Variables</li>
+            <li>Chapter 4 - Quadratic Equations</li>
+            <li>Chapter 5 - Arithmetic Progressions</li>
+        </ul>
+    </div>
+
+    <div class="status-bar">
+        <div class="status-bar-item"><a href="index.html"><i class="fas fa-house"></i></a></div>
+        <div class="status-bar-item"><a href="studyM.html"><i class="fas fa-book"></i></a></div>
+        <div class="status-bar-item"><a href="https://chat.whatsapp.com/Hq7UkA6DmlTHj96DZVtSLd"><i class="fab fa-whatsapp"></i></a></div>
+        <div class="status-bar-item"><a href="contact.html"><i class="fas fa-phone"></i></a></div>
+    </div>
+
+    <!-- Popup Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>It would be better if you sign in or log in to access more features!</p>
+            <a href="login.html"><button class="modal-button">Login</button></a>
+            <a href="signup.html"><button class="modal-button">Signup</button></a>
+        </div>
+    </div>
+
+    <script>
+        // Check if the user has visited before
+        if (!localStorage.getItem('hasVisited')) {
+            // Show the modal after 3 seconds
+            setTimeout(function() {
+                document.getElementById("myModal").style.display = "block";
+            }, 3000);
+            
+            // Set the flag in localStorage
+            localStorage.setItem('hasVisited', 'true');
+        }
+
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
