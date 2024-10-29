@@ -277,10 +277,10 @@
         <i class="fas fa-download"></i>
 </a>
 
-<a href="https://drive.google.com/uc?export=download&id=1gwItfnRnP6uvRcSzQd4Wkn38baO62f2P" download="EDUKART_ONE_SHOT_ENGLISH.pdf" class="material-link">
-    EDUKART ONE SHOT - ENGLISH
-    <i class="fas fa-download"></i>
-</a>
+<button onclick="forceDownload('https://drive.google.com/uc?export=download&id=1gwItfnRnP6uvRcSzQd4Wkn38baO62f2P', 'EDUKART_ONE_SHOT_ENGLISH.pdf')">
+    Download PDF
+</button>
+
 
 <a href="https://drive.google.com/file/d/1h2U1OZZZCeHOKVFjG05ysxp_aVM9gT12/view?usp=drivesdk" download class="material-link">
         OSWAAL QUESTION BANK - ENGLISH 
@@ -307,6 +307,19 @@
     </div>
 
     <script>
+
+        function forceDownload(url, fileName) {
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+// Call the function when needed
+forceDownload("https://drive.google.com/uc?export=download&id=1gwItfnRnP6uvRcSzQd4Wkn38baO62f2P", "EDUKART_ONE_SHOT_ENGLISH.pdf");
+
         // Check if the user has visited before
         if (!localStorage.getItem('hasVisited')) {
             // Show the modal after 3 seconds
