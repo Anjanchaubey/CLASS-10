@@ -85,7 +85,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            bottom-margin:40px;
+            margin-bottom: 40px;
         }
 
         .materials-title {
@@ -161,7 +161,7 @@
 
         /* Popup Modal Styles */
         .modal {
-            display: none; /* Hidden by default */
+            display: none;
             position: fixed; 
             z-index: 1000; 
             left: 0;
@@ -214,29 +214,29 @@
         }
 
         .material-link {
-    display: inline-block;
-    padding: 15px;
-    margin: 10px 0;
-    border: 2px solid #1e88e5; /* Border color */
-    border-radius: 10px; /* Rounded corners */
-    background-color: #fff; /* Background color */
-    color: red; /* Text color */
-    text-decoration: none; /* No underline */
-    font-size: 1.2rem; /* Font size */
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition for hover effects */
-}
+            display: inline-block;
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #1e88e5;
+            border-radius: 10px;
+            background-color: #fff;
+            color: red;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            cursor: pointer;
+        }
 
-.material-link:hover {
-    background-color: #1e88e5; /* Change background on hover */
-    color: white; /* Change text color on hover */
-    border-color: #1976d2; /* Change border color on hover */
-}
-
+        .material-link:hover {
+            background-color: #1e88e5;
+            color: white;
+            border-color: #1976d2;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="logo">CLASS 10 <br/> -BY Pulkit 🗿</div>
+        <div class="logo">CLASS 10 by Pulkit and Anjan 🗿</div>
         <div class="quote">"Education is the passport to the future, for tomorrow belongs to those who prepare for it today." - Malcolm X</div>
         <div class="auth-buttons">
             <a href="login.html"><button class="auth-button">Login</button></a>
@@ -245,7 +245,7 @@
     </div>
 
     <div class="about">
-        <p>Welcome to CLASS 10 by anjan and pulkit, a dedicated educational resource for class 10 students.</p>
+        <p>Welcome to CLASS 10 by Pulkit and Anjan, a dedicated educational resource for class 10 students.</p>
     </div>
 
     <div class="materials-container">
@@ -271,24 +271,17 @@
     </div>
 
     <div class="materials-container">
-    <div class="materials-title">FREE STUDY MATERIALS</div>
-    <a href="https://1drv.ms/b/c/9a753ae3a3970e03/EQ0Z3-Wp6pNNsQBY-pvWBZ8BBJVgfD9rRsbT_5gF9i-fcw" class="material-link">
-    ENGLISH CHEAT SHEET  
-        <i class="fas fa-download"></i>
-</a>
-
+        <div class="materials-title">FREE STUDY MATERIALS</div>
         <a href="https://drive.google.com/uc?id=1gwItfnRnP6uvRcSzQd4Wkn38baO62f2P&export=download" download class="material-link">
-        EDUKART ONE SHOT -ENGLISH 
-        <i class="fas fa-download"></i>
-    </a>
+            EDUKART ONE SHOT -ENGLISH 
+            <i class="fas fa-download"></i>
+        </a>
 
-
-<a href="https://drive.google.com/file/d/1h2U1OZZZCeHOKVFjG05ysxp_aVM9gT12/view?usp=drivesdk" download class="material-link">
-        OSWAAL QUESTION BANK - ENGLISH 
-        <i class="fas fa-download"></i>
-    </a>
-</div>
-
+        <a href="https://drive.google.com/file/d/1h2U1OZZZCeHOKVFjG05ysxp_aVM9gT12/view?usp=drivesdk" download class="material-link">
+            OSWAAL QUESTION BANK - ENGLISH 
+            <i class="fas fa-download"></i>
+        </a>
+    </div>
 
     <div class="status-bar">
         <div class="status-bar-item"><a href="index.html"><i class="fas fa-house"></i></a></div>
@@ -308,33 +301,31 @@
     </div>
 
     <script>
-
-// Call the function when needed
-forceDownload("https://drive.google.com/uc?export=download&id=1gwItfnRnP6uvRcSzQd4Wkn38baO62f2P", "EDUKART_ONE_SHOT_ENGLISH.pdf");
+        function forceDownload(url, fileName) {
+            const anchor = document.createElement("a");
+            anchor.href = url;
+            anchor.download = fileName;
+            document.body.appendChild(anchor);
+            anchor.click();
+            document.body.removeChild(anchor);
+        }
 
         // Check if the user has visited before
         if (!localStorage.getItem('hasVisited')) {
-            // Show the modal after 3 seconds
             setTimeout(function() {
                 document.getElementById("myModal").style.display = "block";
             }, 3000);
-            
-            // Set the flag in localStorage
             localStorage.setItem('hasVisited', 'true');
         }
 
         // Get the modal
         var modal = document.getElementById("myModal");
 
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
+        // Close modal functionality
+        document.querySelector(".close").onclick = function() {
             modal.style.display = "none";
         }
 
-        // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
