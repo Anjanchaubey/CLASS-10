@@ -21,6 +21,7 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
+            margin-bottom: 70px; /* Ensures space for the taskbar */
         }
 
         .header {
@@ -102,6 +103,54 @@
             line-height: 1.5;
         }
 
+        /* Table Section for Datesheet */
+        .datesheet-table {
+            width: 100%;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-collapse: collapse;
+        }
+
+        .datesheet-table th, .datesheet-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .datesheet-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /* Motivation & Quotes Section */
+        .motivation-container {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .motivation-title {
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .motivation-quote {
+            font-size: 1.1rem;
+            color: #555;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
         /* Taskbar */
         .status-bar {
             background-color: #1e88e5;
@@ -132,146 +181,6 @@
         .status-bar-item:hover {
             color: #ffd700;
         }
-
-        /* Style for Free Study Materials Section */
-        .study-material-list {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0 0;
-            color: #333;
-            text-align: left;
-        }
-
-        .study-material-list li {
-            font-size: 1.1rem;
-            color: #1e88e5;
-            margin-bottom: 8px;
-            transition: color 0.3s;
-            padding: 5px;
-        }
-
-        .study-material-list li:hover {
-            color: #d32f2f;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* Popup Modal Styles */
-        .modal {
-            display: none;
-            position: fixed; 
-            z-index: 1000; 
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
-            background-color: rgba(0, 0, 0, 0.7); 
-            padding-top: 100px; 
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto; 
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%; 
-            max-width: 400px; 
-            text-align: center; 
-            border-radius: 10px; 
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .modal-button {
-            background-color: #1e88e5;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 15px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: 15px;
-        }
-
-        .modal-button:hover {
-            background-color: #1976d2;
-        }
-
-        .material-link {
-            display: inline-block;
-            padding: 15px;
-            margin: 10px 0;
-            border: 2px solid #1e88e5;
-            border-radius: 10px;
-            background-color: #fff;
-            color: red;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-            cursor: pointer;
-        }
-
-        .material-link:hover {
-            background-color: #1e88e5;
-            color: white;
-            border-color: #1976d2;
-        }
-        .date-sheet-container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .date-sheet-container h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        .date-sheet-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        .date-sheet-table th,
-        .date-sheet-table td {
-            padding: 10px;
-            text-align: center;
-            border: 1px solid #ddd;
-        }
-
-        .date-sheet-table th {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        .date-sheet-table tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        .date-sheet-table tr:hover {
-            background-color: #ddd;
-        }
     </style>
 </head>
 <body>
@@ -288,31 +197,9 @@
         <p>Welcome to CLASS 10 by Anjan, a dedicated educational resource for class 10 students.</p>
     </div>
 
-    <div class="materials-container">
-        <div class="materials-title">THOUGHT OF THE DAY</div>
-        <div id="thought"></div>
-        <script>
-            function generateThought() {
-                const thoughts = [
-                    "The only way to do great work is to love what you do. - Steve Jobs",
-                    "In the middle of difficulty lies opportunity. - Albert Einstein",
-                    "Believe you can and you're halfway there. - Theodore Roosevelt",
-                    "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
-                    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-                    "It does not matter how slowly you go as long as you do not stop. - Confucius",
-                    "The best way to predict the future is to invent it. - Alan Kay"
-                ];
-                const today = new Date();
-                const index = today.getDate() % thoughts.length;
-                return thoughts[index];
-            }
-            document.getElementById("thought").innerText = generateThought();
-        </script>
-    </div>
-
-       <div class="date-sheet-container">
-        <h2>Class 10 Date Sheet 2024</h2>
-        <table class="date-sheet-table">
+    <!-- Datesheet Table -->
+    <div class="datesheet-table">
+        <table>
             <thead>
                 <tr>
                     <th>Date</th>
@@ -322,30 +209,38 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>15th February 2024</td>
+                    <td>01/12/2024</td>
                     <td>Mathematics</td>
-                    <td>10:30 AM - 1:30 PM</td>
+                    <td>9:00 AM - 12:00 PM</td>
                 </tr>
                 <tr>
-                    <td>18th February 2024</td>
+                    <td>02/12/2024</td>
                     <td>Science</td>
-                    <td>10:30 AM - 1:30 PM</td>
+                    <td>9:00 AM - 12:00 PM</td>
                 </tr>
                 <tr>
-                    <td>21st February 2024</td>
+                    <td>03/12/2024</td>
                     <td>English</td>
-                    <td>10:30 AM - 1:30 PM</td>
+                    <td>9:00 AM - 12:00 PM</td>
                 </tr>
                 <tr>
-                    <td>24th February 2024</td>
+                    <td>04/12/2024</td>
                     <td>Social Studies</td>
-                    <td>10:30 AM - 1:30 PM</td>
+                    <td>9:00 AM - 12:00 PM</td>
                 </tr>
-                <!-- Add more rows as needed -->
             </tbody>
         </table>
     </div>
 
+    <!-- Motivation & Quotes Section -->
+    <div class="motivation-container">
+        <div class="motivation-title">Motivation & Best Wishes</div>
+        <div class="motivation-quote">
+            <p>"Believe you can and you're halfway there." – Theodore Roosevelt</p>
+            <p>"The future belongs to those who believe in the beauty of their dreams." – Eleanor Roosevelt</p>
+            <p>Best wishes for your exams, give it your all, and you'll shine!</p>
+        </div>
+    </div>
 
     <div class="status-bar">
         <div class="status-bar-item"><a href="index.html"><i class="fas fa-house"></i></a></div>
@@ -354,47 +249,22 @@
         <div class="status-bar-item"><a href="contact.html"><i class="fas fa-phone"></i></a></div>
     </div>
 
-    <!-- Popup Modal -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>It would be better if you sign in or log in to access more features!</p>
-            <a href="login.html"><button class="modal-button">Login</button></a>
-            <a href="signup.html"><button class="modal-button">Signup</button></a>
-        </div>
-    </div>
-
     <script>
-        function forceDownload(url, fileName) {
-            const anchor = document.createElement("a");
-            anchor.href = url;
-            anchor.download = fileName;
-            document.body.appendChild(anchor);
-            anchor.click();
-            document.body.removeChild(anchor);
+        function generateThought() {
+            const thoughts = [
+                "The only way to do great work is to love what you do. - Steve Jobs",
+                "In the middle of difficulty lies opportunity. - Albert Einstein",
+                "Believe you can and you're halfway there. - Theodore Roosevelt",
+                "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
+                "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
+                "It does not matter how slowly you go as long as you do not stop. - Confucius",
+                "The best way to predict the future is to invent it. - Alan Kay"
+            ];
+            const today = new Date();
+            const index = today.getDate() % thoughts.length;
+            return thoughts[index];
         }
-
-        // Check if the user has visited before
-        if (!localStorage.getItem('hasVisited')) {
-            setTimeout(function() {
-                document.getElementById("myModal").style.display = "block";
-            }, 3000);
-            localStorage.setItem('hasVisited', 'true');
-        }
-
-        // Get the modal
-        var modal = document.getElementById("myModal");
-
-        // Close modal functionality
-        document.querySelector(".close").onclick = function() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
+        document.getElementById("thought").innerText = generateThought();
     </script>
 </body>
 </html>
